@@ -1,0 +1,675 @@
+/* Persona 3 Reload inspired theme */
+:root {
+    --bg: #071028;
+    /* deep navy */
+    --panel: #0f1b2c;
+    /* card background */
+    --soft: #111827;
+    /* darker panel */
+    --muted: #9aa6b2;
+    --accent-cyan: #00d1ff;
+    /* Persona cyan */
+    --accent-pink: #ff2d95;
+    /* Persona magenta */
+    --border: rgba(255, 255, 255, 0.06);
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-strong: rgba(255, 255, 255, 0.06);
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background:
+        radial-gradient(1200px 400px at 10% 10%, rgba(0, 209, 255, 0.04), transparent 8%),
+        radial-gradient(800px 300px at 95% 85%, rgba(255, 45, 149, 0.03), transparent 6%),
+        linear-gradient(180deg, #041226 0%, var(--bg) 100%);
+    color: #dbeaf6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+/* Heading */
+h1 {
+    margin: 0 0 18px 0;
+    color: var(--accent-cyan);
+    font-size: 1.6rem;
+    letter-spacing: 0.6px;
+    text-shadow: 0 2px 12px rgba(0, 209, 255, 0.06);
+}
+
+/* Container */
+.table-wrap {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    overflow: auto;
+    box-shadow: 0 6px 30px rgba(2, 8, 23, 0.6);
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+/* Card */
+.card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.008));
+    border: 1px solid var(--glass-strong);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .14s cubic-bezier(.2, .9, .3, 1), box-shadow .14s ease;
+    min-height: 320px;
+    backdrop-filter: blur(6px);
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 18px 50px rgba(3, 12, 30, 0.6);
+}
+
+/* Media area with neon rim */
+.card-media {
+    position: relative;
+    background: linear-gradient(135deg, rgba(0, 209, 255, 0.03), rgba(255, 45, 149, 0.02));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.card-media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.02);
+    pointer-events: none;
+}
+
+.card-media img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.6));
+}
+
+/* No-image placeholder */
+.card-noimg {
+    color: var(--muted);
+    font-size: 0.95rem;
+    padding: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+/* Body */
+.card-body {
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1 1 auto;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #f1f8ff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* small arcana dot */
+.card-title::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, var(--accent-pink), var(--accent-cyan));
+    box-shadow: 0 4px 10px rgba(0, 209, 255, 0.08);
+}
+
+/* Meta chips */
+.card-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.chip {
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--muted);
+    font-size: 0.78rem;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+
+/* make level cyan, dlc pink */
+.chip:nth-child(2) {
+    color: var(--accent-cyan);
+    border-color: rgba(0, 209, 255, 0.12);
+    background: rgba(0, 209, 255, 0.03);
+}
+
+.chip.dlc {
+    color: var(--accent-pink);
+    border-color: rgba(255, 45, 149, 0.12);
+    background: rgba(255, 45, 149, 0.02);
+}
+
+/* Description */
+.card-desc {
+    margin: 0;
+    color: #cfe9ff;
+    font-size: 0.92rem;
+    line-height: 1.4;
+    flex: 1 1 auto;
+    opacity: 0.94;
+}
+
+/* Stat list as small panels */
+.stat-list {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 0 0;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+}
+
+.stat-list li {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.008));
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    color: #e6f8ff;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(3, 8, 20, 0.35) inset;
+}
+
+.search-wrap {
+    max-width: 720px;
+    margin: 12px 0 18px 0;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+    color: #eaf6ff;
+    font-size: 1rem;
+    box-shadow: 0 6px 20px rgba(2, 8, 23, 0.45) inset;
+}
+
+.search-input::placeholder {
+    color: rgba(234, 246, 255, 0.45);
+}
+
+/* footer */
+.card.match {
+    box-shadow: 0 26px 70px rgba(0, 209, 255, 0.06);
+    transform: translateY(-6px) scale(1.01);
+}
+
+.card-footer {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/* Responsive tweaks */
+@media (max-width:900px) {
+    .grid {
+        gap: 12px;
+    }
+
+    .card-media {
+        height: 130px;
+    }
+}
+
+@media (max-width:520px) {
+    .card {
+        min-height: 300px;
+    }
+
+    .card-media {
+        height: 110px;
+    }
+}
+
+/* subtle animated accent line at top of each card */
+.card::before {
+    content: '';
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+    opacity: 0.06;
+    transition: opacity .18s ease;
+}
+
+.card:hover::before {
+    opacity: 0.26;
+}
+
+/* links and badges */
+a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Top-right login link (moved from inline styles in index.php) */
+.topbar {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 50;
+}
+
+.login-link {
+    display: inline-block;
+    padding: 8px 14px;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+    color: #021521;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 700;
+    box-shadow: 0 8px 22px rgba(0, 209, 255, 0.06), inset 0 -2px 6px rgba(0, 0, 0, 0.12);
+    transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+
+.login-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 50px rgba(0, 209, 255, 0.10), inset 0 -2px 8px rgba(0, 0, 0, 0.14);
+}
+
+.login-link:active {
+    transform: translateY(0);
+}
+
+.login-link:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 209, 255, 0.10), 0 12px 36px rgba(0, 209, 255, 0.06);
+    border: 1px solid rgba(0, 209, 255, 0.18);
+}
+
+/* Login page: center card in viewport */
+.login-page {
+    font-family: Arial, Helvetica, sans-serif;
+    /* use site's background instead of bright white */
+    background: transparent;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    position: relative;
+}
+
+.login-page .login-wrap {
+    max-width: 520px;
+    /* a bit bigger */
+    width: 100%;
+    /* make it look like the .card used on index (dark/blue tone) */
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.008));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 28px;
+    /* more breathing room */
+    border-radius: 14px;
+    box-shadow: 0 24px 60px rgba(3, 12, 30, 0.6);
+        margin: 0;
+}
+
+/* subtle accent line like cards on index */
+.login-page .login-wrap::before {
+    content: '';
+    display: block;
+    height: 6px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+    opacity: 0.08;
+    margin: -28px -28px 12px -28px;
+    /* stretch to the card edges */
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    pointer-events: none;
+}
+
+/* Override the global .card min-height for the compact login card */
+.login-page .login-wrap.card {
+    min-height: auto;
+    /* don't force the 320px minimum used by .card */
+    /* fix to viewport center */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 60;
+    max-height: calc(100vh - 48px);
+    overflow: auto;
+}
+
+/* Form layout inside the card */
+.login-page .card-body form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-page label {
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+.login-page input::placeholder {
+    color: rgba(234, 246, 255, 0.5);
+}
+
+.login-page input,
+.login-page button {
+    font-size: 1rem;
+}
+
+.login-page input[type=text],
+.login-page input[type=password],
+.login-page input[type=number] {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 4px 0 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+    color: #eaf6ff;
+}
+
+/* Remove native number input spin buttons for a cleaner, consistent look */
+/* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+/* Ensure any element using the form-input class gets the same base styles
+   This makes styling resilient to input types and templates that may add the class */
+.login-page .form-input {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 4px 0 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+    color: #eaf6ff;
+    box-sizing: border-box;
+}
+
+/* Fallback: ensure inputs that carry the form-input class are styled regardless of container */
+input.form-input {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 4px 0 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+    color: #eaf6ff;
+    box-sizing: border-box;
+}
+.login-page button {
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+    color: #021521;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 700;
+    box-shadow: 0 6px 18px rgba(0, 209, 255, 0.06), inset 0 -2px 8px rgba(0, 0, 0, 0.12);
+    transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+    filter: saturate(1.05);
+}
+
+.login-page button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 48px rgba(0, 209, 255, 0.10), inset 0 -2px 10px rgba(0, 0, 0, 0.14);
+}
+
+.login-page button:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18), inset 0 -2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.login-page button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 209, 255, 0.12), 0 12px 36px rgba(0, 209, 255, 0.06);
+    border: 1px solid rgba(0, 209, 255, 0.18);
+}
+
+.login-page button[disabled],
+.login-page button.disabled {
+    opacity: 0.5;
+    cursor: default;
+    transform: none;
+    box-shadow: none;
+}
+
+.login-page .muted {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.login-page .error {
+    color: #ffb4b4;
+    margin-bottom: 8px;
+}
+
+.login-page a.back {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--accent-cyan);
+    text-decoration: none;
+}
+
+/* layout for form inputs stacked like card content */
+.login-page .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.login-page .card-title {
+    margin: 0 0 6px 0;
+    font-size: 1.05rem;
+    color: #f1f8ff;
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 8px 0 14px 0;
+    flex-wrap: wrap;
+    list-style: none;
+        /* remove default list bullets */
+        padding: 0;
+        /* remove default ul padding that can create markers */
+}
+
+.page,
+.page-btn,
+.page.current {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    height: 36px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.015);
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+    list-style-type: none;
+}
+
+.page.current {
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+    color: #021521;
+    border-color: rgba(255, 255, 255, 0.06);
+    list-style-type: none;
+}
+
+.page-btn {
+    font-weight: 700;
+    color: #cfe9ff;
+    padding: 8px 12px;
+}
+
+.page-btn.disabled,
+.page.disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+/* small responsive tweak */
+@media (max-width:420px) {
+    .pagination {
+        gap: 6px;
+    }
+
+    .page,
+    .page-btn {
+        min-width: 32px;
+        height: 32px;
+        padding: 6px 8px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Admin page specific styles */
+.admin-page h1 {
+    margin-top: 6px;
+}
+
+.admin-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+
+.admin-actions .page-btn {
+    background: rgba(255, 255, 255, 0.02);
+    color: #cfe9ff;
+    border-radius: 10px;
+    padding: 10px 14px;
+    text-decoration: none;
+}
+
+.admin-actions .page-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 50px rgba(3, 12, 30, 0.6);
+}
+
+/* small responsive tweak for admin */
+@media (max-width:520px) {
+    .admin-actions {
+        justify-content: center;
+    }
+}
+
+/* center the admin card in the viewport */
+.admin-page {
+    min-height: 100vh;
+    display: block;
+    position: relative;
+}
+
+.admin-page .table-wrap {
+    max-width: 760px;
+    width: calc(100% - 48px);
+}
+
+.admin-page .table-wrap .card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 60;
+    max-height: calc(100vh - 48px);
+    overflow: auto;
+    /* match login card look */
+    max-width: 620px;
+    padding: 0;
+    /* card-body will provide padding */
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.008));
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 24px 60px rgba(3, 12, 30, 0.6);
+}
+
+.admin-page .table-wrap .card::before {
+    content: '';
+    display: block;
+    height: 6px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+    opacity: 0.08;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    pointer-events: none;
+}
+
+.admin-page .table-wrap .card .card-body {
+    padding: 22px 28px;
+}
+
+@media (max-width:700px) {
+    .admin-page .table-wrap .card {
+        position: static;
+        transform: none;
+        max-height: none;
+        margin: 12px auto;
+    }
+}
